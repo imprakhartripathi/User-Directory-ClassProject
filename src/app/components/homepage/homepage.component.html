@@ -1,0 +1,47 @@
+<div class="body">
+    <mat-toolbar class="toolbar">
+        <span>User Directory</span>
+        <span class="example-spacer"></span>
+        <mat-form-field class="search-bar" appearance="fill">
+            <mat-label>Search</mat-label>
+            <input matInput [(ngModel)]="searchText" placeholder="What would you like to search?">
+            <button mat-icon-button matSuffix matTooltip="Search">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+          <button style="margin-left: 10px;" mat-icon-button color="primary" matTooltip="Developed By" (click)="redirectToGitHub()">
+            <mat-icon>information</mat-icon>
+          </button>
+      </mat-toolbar>
+      
+      <div class="person-container" *ngIf="filteredData.length > 0; else noResults">
+        <mat-grid-list cols="3" gutterSize="12px">
+          <mat-grid-tile *ngFor="let person of filteredData">
+            <mat-card class="card" appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>{{ person.name }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>ID: {{ person.id }}</p>
+
+                <mat-divider></mat-divider>
+
+                <p><mat-icon class="user-icon" matTooltip="Username">alternate_email</mat-icon> {{ person.username }}</p>
+                <p><mat-icon class="user-icon" matTooltip="Email">email</mat-icon> {{ person.email }}</p>
+                <p><mat-icon class="user-icon" matTooltip="Phone">phone</mat-icon> {{ person.phone }}</p>
+                <p><mat-icon class="user-icon" matTooltip="Website">public</mat-icon> {{ person.website }}</p>
+
+                <mat-divider></mat-divider>
+
+                <p><mat-icon class="user-icon" matTooltip="Company Name">domain</mat-icon> {{ person.company.name }}</p>
+                <p><mat-icon class="user-icon" matTooltip="Home Address">home</mat-icon> {{ person.address.suite }}, {{ person.address.street }}, {{ person.address.city }}</p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <ng-template #noResults>
+        <h3 class="no-res">No Results Found...</h3>
+      </ng-template>
+</div>

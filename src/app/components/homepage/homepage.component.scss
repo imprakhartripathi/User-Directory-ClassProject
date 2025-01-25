@@ -1,0 +1,72 @@
+.body {
+    background-color: white;
+
+    .example-spacer {
+        flex: 1 1 auto;
+    }
+
+    .toolbar {
+        background-color: #265bb5;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        mat-icon {
+            color: azure;
+
+            &:hover {
+                color: gold;
+            }
+        }
+        span{
+            color: azure;
+        }
+        
+        .search-bar {
+            margin-top: 20px;
+            width: 40%;
+            
+            mat-form-field{
+                background-color: white;
+            }
+            mat-icon{
+                color: #265bb5;
+
+                &:hover {
+                    color: gold;
+                }
+            }
+            mat-label {
+                color: #265bb5;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .item-container {
+        padding: 20px;
+
+        .card {
+            background-color: azure;
+            border-radius: 15px;
+            height: 500px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .no-res {
+        margin: 20px;
+    }
+    .no-res-btn {
+        margin-left: 20px;
+    }
+      
+    .user-icon {
+        margin-bottom: -5px;
+    }
+}
